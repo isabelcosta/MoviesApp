@@ -1,7 +1,8 @@
-package com.example.isabelcosta.moviesapp
+package com.example.isabelcosta.moviesapp.ui.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.example.isabelcosta.moviesapp.R
 
 class MainActivity : AppCompatActivity() {
 
