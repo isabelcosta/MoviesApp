@@ -3,7 +3,7 @@ package com.example.isabelcosta.moviesapp.data.entities
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class NowPlayingListResponseData(
-        @JsonProperty("results") val results : Array<NowPlayingListItemResponseData>,
+        @JsonProperty("results") val results : List<NowPlayingListItemResponseData>,
         @JsonProperty("page") val pageNumber : Int,
         @JsonProperty("total_results") val totalNumberOfResults : Int,
         @JsonProperty("dates") val dates : NowPlayingListDatesResponseData,

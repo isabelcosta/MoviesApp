@@ -1,14 +1,20 @@
 package com.example.isabelcosta.moviesapp.ui.fragments
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import com.example.isabelcosta.moviesapp.R
+import com.example.isabelcosta.moviesapp.adapters.NowPlayingMoviesAdapter
+import com.example.isabelcosta.moviesapp.data.entities.NowPlayingListResponseData
 import com.example.isabelcosta.moviesapp.presenters.INowPlayingMoviesPresenter
 import com.example.isabelcosta.moviesapp.presenters.NowPlayingMoviesPresenter
+import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.INowPlayingMoviesUiCallback
+import kotlinx.android.synthetic.main.fragment_now_playing_movies.view.*
 
-class NowPlayingMoviesFragment : BaseFragment(), INowPlayingMoviesUiCallback {
+class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMoviesUiCallback {
 
     lateinit var presenter : INowPlayingMoviesPresenter
+    private lateinit var moviesResponseData : NowPlayingListResponseData
 
     companion object{
         fun newInstance() : NowPlayingMoviesFragment {
@@ -29,17 +35,23 @@ class NowPlayingMoviesFragment : BaseFragment(), INowPlayingMoviesUiCallback {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        // Fetch now playing movies list
         presenter.getNowPlayingMovies()
     }
-
 
     /*
         Callback Methods
      */
-    override fun onShowMovies() {
+    override fun onShowMovies(movies: NowPlayingListResponseData?) {
 
-//        nowPlayingMoviesRecyclerView...
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        movies?.let {
+            moviesResponseData = movies
+            val moviesList = movies.results
+            val moviesAdapter = NowPlayingMoviesAdapter(screen, moviesList)
+
+            rootView.nowPlayingMoviesRecyclerView.layoutManager = LinearLayoutManager(screen)
+            rootView.nowPlayingMoviesRecyclerView.adapter = moviesAdapter
+        }
     }
 
     override fun onFetchFailMovies() {
