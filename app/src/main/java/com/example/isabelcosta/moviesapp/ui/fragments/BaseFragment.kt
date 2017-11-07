@@ -19,7 +19,7 @@ abstract class BaseFragment<S : BaseActivity> : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        rootView = inflater?.inflate(getLayoutResourceId(), container) as ViewGroup
+        rootView = inflater?.inflate(getLayoutResourceId(), container, false) as ViewGroup
         return rootView
     }
 

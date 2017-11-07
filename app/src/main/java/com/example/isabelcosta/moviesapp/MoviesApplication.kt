@@ -9,8 +9,12 @@ class MoviesApplication : Application() {
             private set
     }
 
+
+    lateinit var MoviesDbApiKey : String
+
     override fun onCreate() {
         super.onCreate()
         instance = this
+        MoviesDbApiKey = resources.getString(R.string.movies_db_api_key)
     }
 }

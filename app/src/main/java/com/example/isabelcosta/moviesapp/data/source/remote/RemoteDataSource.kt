@@ -9,8 +9,9 @@ abstract class RemoteDataSource {
         val MOVIES_API_URL = "https://api.themoviedb.org/$API_VERSION/"
     }
 
-    val retrofit = Retrofit.Builder()
+    protected val retrofit = Retrofit.Builder()
             .baseUrl(MOVIES_API_URL)
+//            .addConverterFactory(GsonConverterFactory.create())
             .build()
 
 }
