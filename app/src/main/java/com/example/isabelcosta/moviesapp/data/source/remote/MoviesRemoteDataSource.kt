@@ -25,7 +25,6 @@ class MoviesRemoteDataSource : RemoteDataSource(), IMoviesDataSource {
                 } else {
                     presenter.onFailGetNowPlayingMovies()
                 }
-
             }
 
             override fun onFailure(call: Call<NowPlayingListResponseData>?, t: Throwable?) {

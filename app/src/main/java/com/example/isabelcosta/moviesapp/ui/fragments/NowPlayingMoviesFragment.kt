@@ -12,11 +12,11 @@ import kotlinx.android.synthetic.main.fragment_now_playing_movies.view.*
 
 class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMoviesUiCallback {
 
-    private var presenter = NowPlayingMoviesPresenter(this)
-    private lateinit var moviesResponseData : NowPlayingListResponseData
+    private var presenter: NowPlayingMoviesPresenter = NowPlayingMoviesPresenter(this)
+    private lateinit var moviesResponseData: NowPlayingListResponseData
 
-    companion object{
-        fun newInstance() : NowPlayingMoviesFragment {
+    companion object {
+        fun newInstance(): NowPlayingMoviesFragment {
             return NowPlayingMoviesFragment()
         }
     }
