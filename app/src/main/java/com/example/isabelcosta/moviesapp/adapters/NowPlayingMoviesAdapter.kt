@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListItemResponseData
+import com.example.isabelcosta.moviesapp.data.source.remote.getFullImageUrl
 import com.example.isabelcosta.moviesapp.ui.activities.BaseActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_now_playing_movies.view.*
@@ -27,7 +28,8 @@ class NowPlayingMoviesAdapter(
 
         itemView.nowPlayingMoviesItemTitle.text = item.movieTitle
         itemView.nowPlayingMoviesItemDescription.text = item.overview
-        Picasso.with(context).load(item.posterPath).into(itemView.nowPlayingMoviesItemPosterImage)
+        val imageFullPath = getFullImageUrl(item.posterPath)
+        Picasso.with(context).load(imageFullPath).into(itemView.nowPlayingMoviesItemPosterImage)
 
 //        itemView.setOnClickListener({ onItemClicked(item) })
     }
