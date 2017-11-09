@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.adapters.NowPlayingMoviesAdapter
-import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListResponseData
+import com.example.isabelcosta.moviesapp.data.models.NowPlayingListResponseData
 import com.example.isabelcosta.moviesapp.presenters.NowPlayingMoviesPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.INowPlayingMoviesUiCallback

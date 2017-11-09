@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.isabelcosta.moviesapp.R
-import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListItemResponseData
+import com.example.isabelcosta.moviesapp.data.models.NowPlayingListItemResponseData
 import com.example.isabelcosta.moviesapp.data.source.remote.getFullImageUrl
 import com.example.isabelcosta.moviesapp.ui.activities.BaseActivity
 import com.squareup.picasso.Picasso
