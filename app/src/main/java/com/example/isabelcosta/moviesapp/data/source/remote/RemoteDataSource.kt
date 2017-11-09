@@ -1,7 +1,7 @@
 package com.example.isabelcosta.moviesapp.data.remote
 
 import com.example.isabelcosta.moviesapp.MoviesApplication
-import com.example.isabelcosta.moviesapp.data.source.remote.MOVIES_API_ENDPOINT
+import com.example.isabelcosta.moviesapp.utils.MOVIES_API_ENDPOINT
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
