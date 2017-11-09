@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.isabelcosta.moviesapp.R
-import com.example.isabelcosta.moviesapp.data.entities.NowPlayingListItemResponseData
+import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListItemResponseData
 import com.example.isabelcosta.moviesapp.ui.activities.BaseActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_now_playing_movies.view.*

@@ -1,6 +1,6 @@
 package com.example.isabelcosta.moviesapp.data.source
 
-import com.example.isabelcosta.moviesapp.data.entities.NowPlayingListResponseData
+import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListResponseData
 
 interface IMoviesDataSource {
 

@@ -1,6 +1,6 @@
 package com.example.isabelcosta.moviesapp.ui.callbacks
 
-import com.example.isabelcosta.moviesapp.data.entities.NowPlayingListResponseData
+import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListResponseData
 
 interface INowPlayingMoviesUiCallback {
 

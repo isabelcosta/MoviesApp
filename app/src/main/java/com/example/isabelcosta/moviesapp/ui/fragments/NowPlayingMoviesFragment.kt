@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.adapters.NowPlayingMoviesAdapter
-import com.example.isabelcosta.moviesapp.data.entities.NowPlayingListResponseData
+import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListResponseData
 import com.example.isabelcosta.moviesapp.presenters.NowPlayingMoviesPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.INowPlayingMoviesUiCallback
@@ -28,14 +28,14 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        presenter = NowPlayingMoviesPresenter(this)
+        presenter = NowPlayingMoviesPresenter(this)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         // Fetch now playing movies list
-//        presenter.getNowPlayingMovies()
+        presenter.getNowPlayingMovies()
     }
 
     /*

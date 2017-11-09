@@ -1,6 +1,6 @@
 package com.example.isabelcosta.moviesapp.presenters
 
-import com.example.isabelcosta.moviesapp.data.entities.NowPlayingListResponseData
+import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListResponseData
 import com.example.isabelcosta.moviesapp.data.remote.MoviesRemoteDataSource
 import com.example.isabelcosta.moviesapp.data.source.IMoviesDataSource
 import com.example.isabelcosta.moviesapp.ui.callbacks.INowPlayingMoviesUiCallback
