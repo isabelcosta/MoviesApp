@@ -41,16 +41,14 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
     /*
         Callback Methods
      */
-    override fun onShowMovies(movies: NowPlayingListResponseData?) {
+    override fun onShowMovies(movies: NowPlayingListResponseData) {
 
-        movies?.let {
-            moviesResponseData = movies
-            val moviesList = movies.results
-            val moviesAdapter = NowPlayingMoviesAdapter(screen, moviesList)
+        moviesResponseData = movies
+        val moviesList = movies.results
+        val moviesAdapter = NowPlayingMoviesAdapter(screen, moviesList)
 
-            rootView.nowPlayingMoviesRecyclerView.layoutManager = LinearLayoutManager(screen)
-            rootView.nowPlayingMoviesRecyclerView.adapter = moviesAdapter
-        }
+        rootView.nowPlayingMoviesRecyclerView.layoutManager = LinearLayoutManager(screen)
+        rootView.nowPlayingMoviesRecyclerView.adapter = moviesAdapter
     }
 
     override fun onFetchFailMovies() {

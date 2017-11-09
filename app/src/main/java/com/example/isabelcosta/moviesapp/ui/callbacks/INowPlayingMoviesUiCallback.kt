@@ -4,6 +4,6 @@ import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListResponseD
 
 interface INowPlayingMoviesUiCallback {
 
-    fun onShowMovies(movies: NowPlayingListResponseData?)
+    fun onShowMovies(movies: NowPlayingListResponseData)
     fun onFetchFailMovies()
 }

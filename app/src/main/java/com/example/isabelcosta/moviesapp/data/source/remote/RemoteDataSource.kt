@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 abstract class RemoteDataSource {
 
     companion object {
-        val API_VERSION = "3"
+        private val API_VERSION = "3"
         val MOVIES_API_URL = "https://api.themoviedb.org/$API_VERSION/"
     }
 

@@ -18,7 +18,14 @@ class MoviesRemoteDataSource : RemoteDataSource(), IMoviesDataSource {
 
         call.enqueue(object: Callback<NowPlayingListResponseData> {
             override fun onResponse(call: Call<NowPlayingListResponseData>?, response: Response<NowPlayingListResponseData>?) {
-                presenter.onSuccessGetNowPlayingMovies(response?.body())
+
+                val responseBody = response?.body()
+                if (responseBody != null) {
+                    presenter.onSuccessGetNowPlayingMovies(responseBody)
+                } else {
+                    presenter.onFailGetNowPlayingMovies()
+                }
+
             }
 
             override fun onFailure(call: Call<NowPlayingListResponseData>?, t: Throwable?) {

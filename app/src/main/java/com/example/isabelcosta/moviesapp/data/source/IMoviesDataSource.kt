@@ -5,7 +5,7 @@ import com.example.isabelcosta.moviesapp.data.datamodels.NowPlayingListResponseD
 interface IMoviesDataSource {
 
     interface GetNowPlayingMovies {
-        fun onSuccessGetNowPlayingMovies(movies : NowPlayingListResponseData?)
+        fun onSuccessGetNowPlayingMovies(movies : NowPlayingListResponseData)
         fun onFailGetNowPlayingMovies()
     }
 
