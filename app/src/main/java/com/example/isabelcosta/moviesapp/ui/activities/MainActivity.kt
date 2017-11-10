@@ -9,8 +9,10 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
         replaceActivityFragment(fragmentManager, R.id.mainActivityFrameLayout, NowPlayingMoviesFragment.newInstance())
+    }
+
+    override fun getLayoutResourceId(): Int {
+        return R.layout.activity_main
     }
 }

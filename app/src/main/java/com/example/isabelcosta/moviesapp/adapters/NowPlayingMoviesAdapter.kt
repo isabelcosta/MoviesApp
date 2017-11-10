@@ -1,5 +1,7 @@
 package com.example.isabelcosta.moviesapp.adapters
 
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +9,8 @@ import android.view.ViewGroup
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.data.models.NowPlayingListItemResponseData
 import com.example.isabelcosta.moviesapp.ui.activities.BaseActivity
+import com.example.isabelcosta.moviesapp.ui.activities.MovieDetailScreen
+import com.example.isabelcosta.moviesapp.utils.MOVIE_DETAIL_ID_BUNDLE_ARG
 import com.example.isabelcosta.moviesapp.utils.getFullImageUrl
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_now_playing_movies.view.*
@@ -30,7 +34,11 @@ class NowPlayingMoviesAdapter (
         val imageFullPath = getFullImageUrl(item.posterPath)
         Picasso.with(context).load(imageFullPath).into(itemView.nowPlayingMoviesItemPosterImage)
 
-//        itemView.setOnClickListener({ onItemClicked(item) })
+        itemView.setOnClickListener {
+            val intent = Intent(context, MovieDetailScreen::class.java)
+            intent.putExtra(MOVIE_DETAIL_ID_BUNDLE_ARG, item.id)
+            startActivity(context, intent, null)
+        }
     }
 
     override fun getItemCount(): Int {
