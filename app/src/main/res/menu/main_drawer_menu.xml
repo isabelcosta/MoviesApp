@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuNowPlayingMovies"
+        android:title="@string/menu_now_playing_movies"
+        android:icon="@drawable/ic_local_movies_black_24dp"/>
+
+    <item
+        android:id="@+id/menuPopularTvShows"
+        android:title="@string/menu_popular_tv_shows"
+        android:icon="@drawable/ic_tv_black_24dp"/>
+
+    <item
+        android:id="@+id/menuSearchMovies"
+        android:title="@string/menu_search_movies"
+        android:icon="@drawable/ic_search_black_24dp"/>
+
+</menu>
