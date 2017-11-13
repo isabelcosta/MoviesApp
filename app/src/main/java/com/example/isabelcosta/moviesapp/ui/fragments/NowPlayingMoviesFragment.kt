@@ -25,12 +25,6 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
         return R.layout.fragment_now_playing_movies
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        presenter = NowPlayingMoviesPresenter(this)
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 

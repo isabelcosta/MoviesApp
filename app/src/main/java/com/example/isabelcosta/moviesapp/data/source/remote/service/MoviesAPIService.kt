@@ -16,7 +16,7 @@ interface MoviesAPIService {
         const val NOW_PLAYING = "now_playing"
 
         // Path parameters
-        const val MOVIE_ID = "{movie_id}"
+        const val MOVIE_ID = "movie_id"
 
         // Query string
         const val API_KEY = "api_key"
@@ -27,7 +27,7 @@ interface MoviesAPIService {
     @GET("$MOVIE/$NOW_PLAYING")
     fun getNowPlayingMovies(@Query(API_KEY) apiKey: String): Call<NowPlayingListResponseData>
 
-    @GET("$MOVIE/$MOVIE_ID")
+    @GET("$MOVIE/{$MOVIE_ID}")
     fun getMovieDetail(@Path(MOVIE_ID) movieId: Int, @Query(API_KEY) apiKey: String): Call<MovieDetailResponseData>
 
 }
