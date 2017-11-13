@@ -39,6 +39,6 @@ class MovieDetailScreen : BaseActivity(), IMovieDetailUiCallback {
     }
 
     override fun onFetchFailMovieDetail() {
-        showToastAlert(this, "Failed to fetch movie detail...")
+        showToastAlert(this, getString(R.string.movie_detail_fetch_fail))
     }
 }

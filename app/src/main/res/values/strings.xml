@@ -3,6 +3,10 @@
 
     <string name="get_more_movies">Get more movies</string>
 
+
+    <!-- Movie detail strings -->
+
     <string name="rating_value">Rating: %s</string>
     <string name="movie_detail">Detail</string>
+    <string name="movie_detail_fetch_fail">Failed to fetch movie detail...</string>
 </resources>

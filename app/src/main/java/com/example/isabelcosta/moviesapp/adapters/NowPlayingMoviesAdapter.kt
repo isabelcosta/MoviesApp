@@ -35,8 +35,9 @@ class NowPlayingMoviesAdapter (
         Picasso.with(context).load(imageFullPath).into(itemView.nowPlayingMoviesItemPosterImage)
 
         itemView.setOnClickListener {
-            val intent = Intent(context, MovieDetailScreen::class.java)
-            intent.putExtra(MOVIE_DETAIL_ID_BUNDLE_ARG, item.id)
+            val intent = Intent(context, MovieDetailScreen::class.java).apply {
+                putExtra(MOVIE_DETAIL_ID_BUNDLE_ARG, item.id)
+            }
             startActivity(context, intent, null)
         }
     }
