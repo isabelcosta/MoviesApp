@@ -3,4 +3,6 @@
 
     <string name="get_more_movies">Get more movies</string>
 
+    <string name="rating_value">Rating: %s</string>
+    <string name="movie_detail">Detail</string>
 </resources>

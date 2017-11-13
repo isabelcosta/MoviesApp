@@ -21,8 +21,9 @@ class MovieDetailScreen : BaseActivity(), IMovieDetailUiCallback {
 
         val movieDetailId: Int = intent.extras.get(MOVIE_DETAIL_ID_BUNDLE_ARG) as Int
 
-        presenter.getMovieDetail(movieDetailId)
+        supportActionBar?.title = getString(R.string.movie_detail)
 
+        presenter.getMovieDetail(movieDetailId)
     }
 
     override fun getLayoutResourceId(): Int {
@@ -33,8 +34,7 @@ class MovieDetailScreen : BaseActivity(), IMovieDetailUiCallback {
         this.movieDetail = movieDetail
         movieDetailDescriptionTextView.text = movieDetail.overview
         movieDetailTitleTextView.text = movieDetail.title
-        movieDetailRatingBar.rating = movieDetail.voteAverage.toFloat()
-        movieDetailRatingTextView.text = movieDetail.voteAverage.toString()
+        movieDetailRatingTextView.text = getString(R.string.rating_value, movieDetail.voteAverage.toString())
         Picasso.with(this).load(getFullImageUrl(movieDetail.posterPath)).into(movieDetailPosterImageView)
     }
 
