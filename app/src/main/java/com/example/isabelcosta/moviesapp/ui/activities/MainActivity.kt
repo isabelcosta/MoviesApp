@@ -1,11 +1,13 @@
 package com.example.isabelcosta.moviesapp.ui.activities
 
 import android.os.Bundle
+import android.view.Gravity
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.ui.fragments.BaseFragment
 import com.example.isabelcosta.moviesapp.ui.fragments.NowPlayingMoviesFragment
 import com.example.isabelcosta.moviesapp.utils.addFragmentToActivity
 import com.example.isabelcosta.moviesapp.utils.replaceActivityFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_drawer_layout.*
 
 class MainActivity : BaseActivity() {
@@ -16,10 +18,17 @@ class MainActivity : BaseActivity() {
             R.id.menuSearchMovies to NowPlayingMoviesFragment.newInstance()
     )
 
+    private val fragmentsMenuTitles: HashMap<Int, Int> = hashMapOf (
+            R.id.menuNowPlayingMovies to R.string.menu_now_playing_movies,
+            R.id.menuPopularTvShows to R.string.menu_popular_tv_shows,
+            R.id.menuSearchMovies to R.string.menu_search_movies
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         populateSideMenu()
+        populateToolbar()
 
         replaceFragment(NowPlayingMoviesFragment.newInstance())
     }
@@ -39,11 +48,18 @@ class MainActivity : BaseActivity() {
                 replaceFragment(it)
             }
 
+            mainToolbar.setTitle(fragmentsMenuTitles[it.itemId]!!)
+            mainActivityNavigationView.setCheckedItem(it.itemId)
+
             true
         }
-//        mainActivityNavigationView.setCheckedItem(R.id.menuNowPlayingMovies)
     }
 
-    fun replaceFragment(fragment: BaseFragment<MainActivity>) = replaceActivityFragment(fragmentManager, R.id.mainActivityFrameLayout, fragment)
-    fun addFragment(fragment: BaseFragment<MainActivity>) = addFragmentToActivity(fragmentManager, R.id.mainActivityFrameLayout, fragment)
+    private fun populateToolbar() {
+        mainToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp)
+        mainToolbar.setNavigationOnClickListener { mainActivityDrawerLayout.openDrawer(Gravity.START) }
+    }
+
+    fun replaceFragment(fragment: BaseFragment<MainActivity>) = replaceActivityFragment(fragmentManager, R.id.mainFrameLayout, fragment)
+    fun addFragment(fragment: BaseFragment<MainActivity>) = addFragmentToActivity(fragmentManager, R.id.mainFrameLayout, fragment)
 }
