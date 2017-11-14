@@ -10,3 +10,10 @@ fun replaceActivityFragment(fragmentManager: FragmentManager, containerId: Int, 
             .replace(containerId, fragment)
             .commit()
 }
+
+fun addFragmentToActivity(fragmentManager: FragmentManager, containerId: Int, fragment: BaseFragment<MainActivity>) {
+    fragmentManager
+            .beginTransaction()
+            .add(containerId, fragment)
+            .commit()
+}
