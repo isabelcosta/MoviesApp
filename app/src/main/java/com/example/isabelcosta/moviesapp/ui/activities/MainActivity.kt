@@ -29,12 +29,16 @@ class MainActivity : BaseActivity() {
 
         populateSideMenu()
         populateToolbar()
-
-        replaceFragment(NowPlayingMoviesFragment.newInstance())
+        initMainScreen()
     }
 
     override fun getLayoutResourceId(): Int {
         return R.layout.main_drawer_layout
+    }
+
+    private fun initMainScreen() {
+        replaceFragment(NowPlayingMoviesFragment.newInstance())
+        mainToolbar.setTitle(R.string.menu_now_playing_movies)
     }
 
     private fun populateSideMenu() {
