@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.ui.fragments.BaseFragment
 import com.example.isabelcosta.moviesapp.ui.fragments.NowPlayingMoviesFragment
+import com.example.isabelcosta.moviesapp.utils.addFragmentToActivity
 import com.example.isabelcosta.moviesapp.utils.replaceActivityFragment
 import kotlinx.android.synthetic.main.main_drawer_layout.*
 
@@ -20,7 +21,7 @@ class MainActivity : BaseActivity() {
 
         populateSideMenu()
 
-        replaceActivityFragment(fragmentManager, R.id.mainActivityFrameLayout, NowPlayingMoviesFragment.newInstance())
+        replaceFragment(NowPlayingMoviesFragment.newInstance())
     }
 
     override fun getLayoutResourceId(): Int {
@@ -35,11 +36,14 @@ class MainActivity : BaseActivity() {
             mainActivityDrawerLayout.closeDrawers()
 
             selectedFragment?.let {
-                replaceActivityFragment(fragmentManager, R.id.mainActivityFrameLayout, it)
+                replaceFragment(it)
             }
 
             true
         }
 //        mainActivityNavigationView.setCheckedItem(R.id.menuNowPlayingMovies)
     }
+
+    fun replaceFragment(fragment: BaseFragment<MainActivity>) = replaceActivityFragment(fragmentManager, R.id.mainActivityFrameLayout, fragment)
+    fun addFragment(fragment: BaseFragment<MainActivity>) = addFragmentToActivity(fragmentManager, R.id.mainActivityFrameLayout, fragment)
 }
