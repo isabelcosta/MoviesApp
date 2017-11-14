@@ -29,8 +29,6 @@ class MainActivity : BaseActivity() {
 
     private fun populateSideMenu() {
 
-        supportActionBar?.setIcon(R.drawable.ic_menu_black_24dp)
-        
         mainActivityNavigationView.setNavigationItemSelectedListener {
             val selectedFragment = fragmentsMenuMap[it.itemId]
 
