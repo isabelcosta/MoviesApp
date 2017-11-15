@@ -15,8 +15,8 @@ import com.example.isabelcosta.moviesapp.utils.getFullImageUrl
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_now_playing_movies.view.*
 
-class NowPlayingMoviesAdapter (
-        private val context : BaseActivity,
+class NowPlayingMoviesAdapter(
+        private val context: BaseActivity,
         private val moviesList: List<NowPlayingListItemResponseData>
 ) : RecyclerView.Adapter<NowPlayingMoviesAdapter.NowPlayingMovieViewHolder>() {
 

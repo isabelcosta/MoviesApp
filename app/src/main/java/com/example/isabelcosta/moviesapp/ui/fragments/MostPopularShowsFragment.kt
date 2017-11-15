@@ -3,6 +3,7 @@ package com.example.isabelcosta.moviesapp.ui.fragments
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import com.example.isabelcosta.moviesapp.R
+import com.example.isabelcosta.moviesapp.adapters.MostPopularShowsAdapter
 import com.example.isabelcosta.moviesapp.data.models.MostPopularShowsListResponseData
 import com.example.isabelcosta.moviesapp.presenters.MostPopularShowsPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
@@ -38,10 +39,10 @@ class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShows
 
         showsResponseData = tvShows
         val showsList = tvShows.results
+        val showsAdapter = MostPopularShowsAdapter(screen, showsList)
 
-
-
-        rootView.mostPopularShowsRecyclerView.layoutManager = GridLayoutManager(screen)
+        rootView.mostPopularShowsRecyclerView.layoutManager = GridLayoutManager(screen, 2)
+        rootView.mostPopularShowsRecyclerView.adapter = showsAdapter
     }
 
     override fun onFetchFailMostPopularShows() {
