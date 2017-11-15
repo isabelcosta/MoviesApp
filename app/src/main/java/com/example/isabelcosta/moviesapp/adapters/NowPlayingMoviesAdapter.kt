@@ -1,7 +1,5 @@
 package com.example.isabelcosta.moviesapp.adapters
 
-import android.content.Intent
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +7,14 @@ import android.view.ViewGroup
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.data.models.NowPlayingListItemResponseData
 import com.example.isabelcosta.moviesapp.ui.activities.BaseActivity
-import com.example.isabelcosta.moviesapp.ui.activities.MovieDetailScreen
-import com.example.isabelcosta.moviesapp.utils.MOVIE_DETAIL_ID_BUNDLE_ARG
 import com.example.isabelcosta.moviesapp.utils.getFullImageUrl
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_now_playing_movies.view.*
 
 class NowPlayingMoviesAdapter(
         private val context: BaseActivity,
-        private val moviesList: List<NowPlayingListItemResponseData>
+        private val moviesList: List<NowPlayingListItemResponseData>,
+        private val openDetailFunction: (movieDetailId: Int) -> Unit
 ) : RecyclerView.Adapter<NowPlayingMoviesAdapter.NowPlayingMovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NowPlayingMovieViewHolder {
@@ -34,12 +31,7 @@ class NowPlayingMoviesAdapter(
         val imageFullPath = getFullImageUrl(item.posterPath)
         Picasso.with(context).load(imageFullPath).into(itemView.nowPlayingMoviesItemPosterImage)
 
-        itemView.setOnClickListener {
-            val intent = Intent(context, MovieDetailScreen::class.java).apply {
-                putExtra(MOVIE_DETAIL_ID_BUNDLE_ARG, item.movieId)
-            }
-            startActivity(context, intent, null)
-        }
+        itemView.setOnClickListener { openDetailFunction(item.movieId) }
     }
 
     override fun getItemCount(): Int {

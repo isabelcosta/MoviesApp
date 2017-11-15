@@ -8,5 +8,13 @@ fun replaceActivityFragment(fragmentManager: FragmentManager, containerId: Int, 
     fragmentManager
             .beginTransaction()
             .replace(containerId, fragment)
+            .addToBackStack(null)
+            .commit()
+}
+
+fun addFragmentToActivity(fragmentManager: FragmentManager, containerId: Int, fragment: BaseFragment<MainActivity>) {
+    fragmentManager
+            .beginTransaction()
+            .add(containerId, fragment)
             .commit()
 }
