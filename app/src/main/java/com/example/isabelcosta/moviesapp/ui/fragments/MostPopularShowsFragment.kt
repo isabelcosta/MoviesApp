@@ -8,7 +8,10 @@ import com.example.isabelcosta.moviesapp.data.models.MostPopularShowsListRespons
 import com.example.isabelcosta.moviesapp.presenters.MostPopularShowsPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.IMostPopularShowsUiCallback
+import com.example.isabelcosta.moviesapp.utils.GridListSpacesItemDecoration
 import kotlinx.android.synthetic.main.fragment_most_popular_shows.view.*
+
+
 
 class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShowsUiCallback {
 
@@ -39,9 +42,14 @@ class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShows
 
         showsResponseData = tvShows
         val showsList = tvShows.results
-        val showsAdapter = MostPopularShowsAdapter(screen, showsList)
+        val numColumns = 2
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.generic_14dp)
+        val itemDecoration = GridListSpacesItemDecoration(spacingInPixels, numColumns)
 
-        rootView.mostPopularShowsRecyclerView.layoutManager = GridLayoutManager(screen, 2)
+        rootView.mostPopularShowsRecyclerView.addItemDecoration(itemDecoration)
+        rootView.mostPopularShowsRecyclerView.layoutManager = GridLayoutManager(screen, numColumns)
+
+        val showsAdapter = MostPopularShowsAdapter(screen, showsList)
         rootView.mostPopularShowsRecyclerView.adapter = showsAdapter
     }
 
