@@ -17,7 +17,7 @@ data class NowPlayingListDatesResponseData(
 
 data class NowPlayingListItemResponseData(
         @SerializedName("vote_count") val voteCount: Int,
-        @SerializedName("id") val id: Int,
+        @SerializedName("id") val movieId: Int,
         @SerializedName("video") val video: Boolean,
         @SerializedName("vote_average") val voteAverage: Float,
         @SerializedName("title") val movieTitle: String,

@@ -36,7 +36,7 @@ class NowPlayingMoviesAdapter (
 
         itemView.setOnClickListener {
             val intent = Intent(context, MovieDetailScreen::class.java).apply {
-                putExtra(MOVIE_DETAIL_ID_BUNDLE_ARG, item.id)
+                putExtra(MOVIE_DETAIL_ID_BUNDLE_ARG, item.movieId)
             }
             startActivity(context, intent, null)
         }
