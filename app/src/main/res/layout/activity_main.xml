@@ -9,8 +9,11 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:id="@+id/mainToolbar"/>
+        android:id="@+id/mainToolbar"
+        style="@style/ToolbarStyle"
+        tools:title="@string/app_name"
+        tools:subtitle="@string/app_name"
+        tools:navigationIcon="@drawable/ic_menu_black_24dp"/>
 
     <FrameLayout
         android:layout_width="match_parent"

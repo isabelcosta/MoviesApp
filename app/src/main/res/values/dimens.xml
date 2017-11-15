@@ -7,6 +7,7 @@
     <dimen name="generic_16dp">16dp</dimen>
 
     <!-- sp sizes -->
+    <dimen name="generic_12sp">12sp</dimen>
     <dimen name="generic_16sp">16sp</dimen>
     <dimen name="generic_22sp">22sp</dimen>
 

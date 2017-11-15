@@ -3,9 +3,10 @@
 
     <!-- Menu title -->
 
-    <string name="menu_now_playing_movies">Now Playing Movies</string>
-    <string name="menu_popular_tv_shows">Popular Tv Shows</string>
-    <string name="menu_search_movies">Search Movies</string>
+    <string name="screen_title_now_playing_movies">Now Playing Movies</string>
+    <string name="screen_title_popular_tv_shows">Popular TV Shows</string>
+    <string name="screen_title_search_movies">Search Movies</string>
+    <string name="screen_title_movie_detail">Movie Detail</string>
 
     <!-- Movie detail strings -->
 

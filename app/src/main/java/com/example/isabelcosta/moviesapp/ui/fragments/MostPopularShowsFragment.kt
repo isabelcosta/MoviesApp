@@ -26,6 +26,10 @@ class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShows
         return R.layout.fragment_most_popular_shows
     }
 
+    override fun getTitleResourceId(): Int {
+        return R.string.screen_title_popular_tv_shows
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 

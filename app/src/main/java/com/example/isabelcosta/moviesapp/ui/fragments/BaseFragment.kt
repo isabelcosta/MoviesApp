@@ -24,4 +24,6 @@ abstract class BaseFragment<S : BaseActivity> : Fragment() {
     }
 
     protected abstract fun getLayoutResourceId() : Int
+
+    protected abstract fun getTitleResourceId() : Int
 }

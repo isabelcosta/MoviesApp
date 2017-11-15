@@ -16,7 +16,11 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
     private var presenter: NowPlayingMoviesPresenter = NowPlayingMoviesPresenter(this)
     private lateinit var moviesResponseData: NowPlayingListResponseData
     private val openDetail: (Int) -> Unit =
-            { movieDetailId -> screen.replaceFragment(MovieDetailFragment.newInstance(movieDetailId)) }
+            {
+                movieDetailId ->
+                    screen.navigateToFragmentToolbarSet(false)
+                    screen.replaceFragment(MovieDetailFragment.newInstance(movieDetailId))
+            }
 
     companion object {
         fun newInstance(): NowPlayingMoviesFragment {
@@ -26,6 +30,10 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
 
     override fun getLayoutResourceId(): Int {
         return R.layout.fragment_now_playing_movies
+    }
+
+    override fun getTitleResourceId(): Int {
+        return R.string.screen_title_now_playing_movies
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
