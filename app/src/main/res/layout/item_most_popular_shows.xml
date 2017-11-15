@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/show_poster_content_description"
         android:id="@+id/mostPopularShowsItemPosterImage"
         app:srcCompat="@mipmap/placeholder"/>
 

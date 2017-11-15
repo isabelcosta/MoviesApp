@@ -11,8 +11,6 @@ import com.example.isabelcosta.moviesapp.ui.callbacks.IMostPopularShowsUiCallbac
 import com.example.isabelcosta.moviesapp.utils.GridListSpacesItemDecoration
 import kotlinx.android.synthetic.main.fragment_most_popular_shows.view.*
 
-
-
 class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShowsUiCallback {
 
     private var presenter: MostPopularShowsPresenter = MostPopularShowsPresenter(this)
@@ -42,15 +40,17 @@ class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShows
 
         showsResponseData = tvShows
         val showsList = tvShows.results
+        val showsAdapter = MostPopularShowsAdapter(screen, showsList)
+
         val numColumns = 2
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.generic_14dp)
         val itemDecoration = GridListSpacesItemDecoration(spacingInPixels, numColumns)
 
-        rootView.mostPopularShowsRecyclerView.addItemDecoration(itemDecoration)
-        rootView.mostPopularShowsRecyclerView.layoutManager = GridLayoutManager(screen, numColumns)
-
-        val showsAdapter = MostPopularShowsAdapter(screen, showsList)
-        rootView.mostPopularShowsRecyclerView.adapter = showsAdapter
+        rootView.mostPopularShowsRecyclerView.apply {
+            addItemDecoration(itemDecoration)
+            layoutManager = GridLayoutManager(screen, numColumns)
+            adapter = showsAdapter
+        }
     }
 
     override fun onFetchFailMostPopularShows() {

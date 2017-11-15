@@ -26,8 +26,8 @@ class NowPlayingMoviesAdapter(
         val item = moviesList[position]
         val itemView = holder?.itemView ?: return
 
-//        itemView.nowPlayingMoviesItemTitle.text = item.movieTitle
-//        itemView.nowPlayingMoviesItemDescription.text = item.overview
+        itemView.nowPlayingMoviesItemTitle.text = item.movieTitle
+        itemView.nowPlayingMoviesItemDescription.text = item.overview
         val imageFullPath = getFullImageUrl(item.posterPath)
         Picasso.with(context).load(imageFullPath).into(itemView.nowPlayingMoviesItemPosterImage)
 

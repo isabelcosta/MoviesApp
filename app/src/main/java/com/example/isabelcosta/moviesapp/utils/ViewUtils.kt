@@ -10,8 +10,7 @@ import android.view.View
 
 class GridListSpacesItemDecoration(private val space: Int, private val numColumns: Int) : RecyclerView.ItemDecoration() {
 
-    override fun getItemOffsets(outRect: Rect, view: View,
-                                parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
 
         val lastColumn = numColumns
         // the last element of an row won't have the right margin
@@ -20,6 +19,16 @@ class GridListSpacesItemDecoration(private val space: Int, private val numColumn
         }
 
         if (parent.getChildLayoutPosition(view) >= numColumns) {
+            outRect.top = space
+        }
+    }
+}
+
+class LinearListSpacesItemDecoration(private val space: Int) : RecyclerView.ItemDecoration() {
+
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+
+        if (parent.getChildLayoutPosition(view) != 0) {
             outRect.top = space
         }
     }

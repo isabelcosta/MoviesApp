@@ -8,6 +8,7 @@ import com.example.isabelcosta.moviesapp.data.models.NowPlayingListResponseData
 import com.example.isabelcosta.moviesapp.presenters.NowPlayingMoviesPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.INowPlayingMoviesUiCallback
+import com.example.isabelcosta.moviesapp.utils.LinearListSpacesItemDecoration
 import kotlinx.android.synthetic.main.fragment_now_playing_movies.view.*
 
 class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMoviesUiCallback {
@@ -43,8 +44,14 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
         val moviesList = movies.results
         val moviesAdapter = NowPlayingMoviesAdapter(screen, moviesList, openDetail)
 
-        rootView.nowPlayingMoviesRecyclerView.layoutManager = LinearLayoutManager(screen)
-        rootView.nowPlayingMoviesRecyclerView.adapter = moviesAdapter
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.generic_14dp)
+        val itemDecoration = LinearListSpacesItemDecoration(spacingInPixels)
+
+        rootView.nowPlayingMoviesRecyclerView.apply {
+            addItemDecoration(itemDecoration)
+            layoutManager = LinearLayoutManager(screen)
+            adapter = moviesAdapter
+        }
     }
 
     override fun onFetchFailMovies() {
