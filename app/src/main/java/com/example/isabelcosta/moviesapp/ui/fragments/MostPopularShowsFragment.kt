@@ -1,16 +1,18 @@
 package com.example.isabelcosta.moviesapp.ui.fragments
 
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import com.example.isabelcosta.moviesapp.R
-import com.example.isabelcosta.moviesapp.data.models.NowPlayingListResponseData
+import com.example.isabelcosta.moviesapp.data.models.MostPopularShowsListResponseData
 import com.example.isabelcosta.moviesapp.presenters.MostPopularShowsPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.IMostPopularShowsUiCallback
+import kotlinx.android.synthetic.main.fragment_most_popular_shows.view.*
 
 class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShowsUiCallback {
 
     private var presenter: MostPopularShowsPresenter = MostPopularShowsPresenter(this)
-    private lateinit var moviesResponseData: NowPlayingListResponseData
+    private lateinit var showsResponseData: MostPopularShowsListResponseData
 
     companion object {
         fun newInstance(): MostPopularShowsFragment {
@@ -25,15 +27,21 @@ class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShows
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        // Fetch now playing movies list
-        presenter.getNowPlayingMovies()
+        // Fetch most popular shows list
+        presenter.getMostPopularShows()
     }
 
     /*
         Callback Methods
      */
-    override fun onShowMostPopularShows() {
+    override fun onShowMostPopularShows(tvShows: MostPopularShowsListResponseData) {
 
+        showsResponseData = tvShows
+        val showsList = tvShows.results
+
+
+
+        rootView.mostPopularShowsRecyclerView.layoutManager = GridLayoutManager(screen)
     }
 
     override fun onFetchFailMostPopularShows() {
