@@ -17,7 +17,12 @@
     </style>
 
     <style name="DrawerLayoutTitle">
+        <item name="android:textSize">@dimen/generic_22sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="NowPlayingMoviesItemTitle">
         <item name="android:textSize">@dimen/generic_16sp</item>
-        <item name="android:color">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 </resources>

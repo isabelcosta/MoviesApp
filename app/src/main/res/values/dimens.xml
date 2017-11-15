@@ -8,6 +8,7 @@
 
     <!-- sp sizes -->
     <dimen name="generic_16sp">16sp</dimen>
+    <dimen name="generic_22sp">22sp</dimen>
 
 
 </resources>
