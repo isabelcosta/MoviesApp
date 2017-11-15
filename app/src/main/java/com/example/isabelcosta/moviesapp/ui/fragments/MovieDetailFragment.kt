@@ -7,6 +7,7 @@ import com.example.isabelcosta.moviesapp.presenters.MovieDetailPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.IMovieDetailUiCallback
 import com.example.isabelcosta.moviesapp.utils.MOVIE_DETAIL_ID_BUNDLE_ARG
+import com.example.isabelcosta.moviesapp.utils.getAnyWithoutCast
 import com.example.isabelcosta.moviesapp.utils.getFullImageUrl
 import com.example.isabelcosta.moviesapp.utils.showToastAlert
 import com.squareup.picasso.Picasso
@@ -32,7 +33,7 @@ class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val movieDetailId: Int = arguments.get(MOVIE_DETAIL_ID_BUNDLE_ARG) as Int
+        val movieDetailId: Int = arguments.getAnyWithoutCast(MOVIE_DETAIL_ID_BUNDLE_ARG)
 
         presenter.getMovieDetail(movieDetailId)
     }
