@@ -14,6 +14,8 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
 
     private var presenter: NowPlayingMoviesPresenter = NowPlayingMoviesPresenter(this)
     private lateinit var moviesResponseData: NowPlayingListResponseData
+    private val openDetail: (Int) -> Unit =
+            { movieDetailId -> screen.replaceFragment(MovieDetailFragment.newInstance(movieDetailId)) }
 
     companion object {
         fun newInstance(): NowPlayingMoviesFragment {
@@ -39,7 +41,7 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
 
         moviesResponseData = movies
         val moviesList = movies.results
-        val moviesAdapter = NowPlayingMoviesAdapter(screen, moviesList)
+        val moviesAdapter = NowPlayingMoviesAdapter(screen, moviesList, openDetail)
 
         rootView.nowPlayingMoviesRecyclerView.layoutManager = LinearLayoutManager(screen)
         rootView.nowPlayingMoviesRecyclerView.adapter = moviesAdapter
@@ -50,4 +52,6 @@ class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMovies
         // Show fail fetch view
 
     }
+
+
 }

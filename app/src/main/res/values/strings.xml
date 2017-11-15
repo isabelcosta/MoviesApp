@@ -8,5 +8,10 @@
 
     <string name="rating_value">Rating: %s</string>
     <string name="movie_detail">Detail</string>
-    <string name="movie_detail_fetch_fail">Failed to fetch movie detail...</string>
+    <string name="movie_detail_fetch_fail">Failed to fetch movie detail…</string>
+
+    <!-- Menu title -->
+    <string name="menu_now_playing_movies">Now Playing Movies</string>
+    <string name="menu_popular_tv_shows">Popular Tv Shows</string>
+    <string name="menu_search_movies">Search Movies</string>
 </resources>
