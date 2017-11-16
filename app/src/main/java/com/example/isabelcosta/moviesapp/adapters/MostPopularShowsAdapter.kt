@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.data.models.MostPopularShowsListItemResponseData
 import com.example.isabelcosta.moviesapp.ui.activities.BaseActivity
-import com.example.isabelcosta.moviesapp.utils.getFullImageUrl
-import com.squareup.picasso.Picasso
+import com.example.isabelcosta.moviesapp.utils.setImageUsingPicasso
 import kotlinx.android.synthetic.main.item_most_popular_shows.view.*
 
 class MostPopularShowsAdapter(
@@ -28,8 +27,7 @@ class MostPopularShowsAdapter(
 
         itemView.mostPopularShowsItemTitle.text = item.originalName
         itemView.mostPopularShowsItemRating.text = item.voteAverage.toString()
-        val imageFullPath = getFullImageUrl(item.posterPath)
-        Picasso.with(context).load(imageFullPath).into(itemView.mostPopularShowsItemPosterImage)
+        setImageUsingPicasso(context, item.posterPath, itemView.mostPopularShowsItemPosterImage)
 
 //        itemView.setOnClickListener()
     }

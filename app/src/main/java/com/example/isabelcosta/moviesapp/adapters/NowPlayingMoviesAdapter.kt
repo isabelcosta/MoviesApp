@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.data.models.NowPlayingListItemResponseData
 import com.example.isabelcosta.moviesapp.ui.activities.BaseActivity
-import com.example.isabelcosta.moviesapp.utils.getFullImageUrl
-import com.squareup.picasso.Picasso
+import com.example.isabelcosta.moviesapp.utils.setImageUsingPicasso
 import kotlinx.android.synthetic.main.item_now_playing_movies.view.*
 
 class NowPlayingMoviesAdapter(
@@ -29,9 +28,7 @@ class NowPlayingMoviesAdapter(
 
         itemView.nowPlayingMoviesItemTitle.text = item.movieTitle
         itemView.nowPlayingMoviesItemDescription.text = item.overview
-        val imageFullPath = getFullImageUrl(item.posterPath)
-        Picasso.with(context).load(imageFullPath).into(itemView.nowPlayingMoviesItemPosterImage)
-
+        setImageUsingPicasso(context, item.posterPath, itemView.nowPlayingMoviesItemPosterImage)
         itemView.setOnClickListener { openDetailFunction(item.movieId) }
     }
 

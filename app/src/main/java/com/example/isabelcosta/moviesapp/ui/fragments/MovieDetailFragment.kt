@@ -7,10 +7,8 @@ import com.example.isabelcosta.moviesapp.presenters.MovieDetailPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.IMovieDetailUiCallback
 import com.example.isabelcosta.moviesapp.utils.MOVIE_DETAIL_ID_BUNDLE_ARG
-import com.example.isabelcosta.moviesapp.utils.getAnyWithoutCast
-import com.example.isabelcosta.moviesapp.utils.getFullImageUrl
+import com.example.isabelcosta.moviesapp.utils.setImageUsingPicasso
 import com.example.isabelcosta.moviesapp.utils.showToastAlert
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
 
 /**
@@ -20,6 +18,9 @@ class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback
 
     private lateinit var movieDetail: MovieDetailResponseData
     private val presenter = MovieDetailPresenter(this)
+    private val movieDetailId: Int by lazy {
+        arguments.getInt(MOVIE_DETAIL_ID_BUNDLE_ARG)
+    }
 
     override fun getLayoutResourceId(): Int = R.layout.fragment_movie_detail
     override fun getTitleResourceId(): Int = R.string.screen_title_movie_detail
@@ -33,15 +34,10 @@ class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         screen.setToolbarTitle(getTitleResourceId())
-
-        val movieDetailId: Int = arguments.getAnyWithoutCast(MOVIE_DETAIL_ID_BUNDLE_ARG)
-
         presenter.getMovieDetail(movieDetailId)
-    }
-
     }
 
     override fun onShowMovieDetail(movieDetail: MovieDetailResponseData) {
@@ -49,7 +45,7 @@ class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback
         movieDetailDescriptionTextView.text = movieDetail.overview
         movieDetailTitleTextView.text = movieDetail.title
         movieDetailRatingTextView.text = getString(R.string.rating_value, movieDetail.voteAverage.toString())
-        Picasso.with(screen).load(getFullImageUrl(movieDetail.posterPath)).into(movieDetailPosterImageView)
+        setImageUsingPicasso(screen, movieDetail.posterPath, movieDetailPosterImageView)
     }
 
     override fun onFetchFailMovieDetail() {
