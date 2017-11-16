@@ -32,6 +32,7 @@ class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        screen.setToolbarTitle(getTitleResourceId())
 
         val movieDetailId: Int = arguments.getAnyWithoutCast(MOVIE_DETAIL_ID_BUNDLE_ARG)
 
@@ -40,6 +41,10 @@ class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback
 
     override fun getLayoutResourceId(): Int {
         return R.layout.fragment_movie_detail
+    }
+
+    override fun getTitleResourceId(): Int {
+        return R.string.screen_title_movie_detail
     }
 
     override fun onShowMovieDetail(movieDetail: MovieDetailResponseData) {

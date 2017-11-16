@@ -13,7 +13,7 @@ data class MovieDetailResponseData(
         @SerializedName("budget") val budget: Int, //35000000
         @SerializedName("genres") val genres: List<GenreResponseData>,
         @SerializedName("homepage") val homepage: String, //http://itthemovie.com/
-        @SerializedName("id") val id: Int, //346364
+        @SerializedName("id") val movieId: Int, //346364
         @SerializedName("imdb_id") val imdbId: String, //tt1396484
         @SerializedName("original_language") val originalLanguage: String, //en
         @SerializedName("original_title") val originalTitle: String, //It
