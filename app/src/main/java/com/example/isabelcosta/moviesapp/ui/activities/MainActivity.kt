@@ -67,7 +67,7 @@ class MainActivity : BaseActivity() {
         mainToolbar.setNavigationOnClickListener { mainActivityDrawerLayout.openDrawer(Gravity.START) }
     }
 
-    fun setToolbarTitle(titleRscId: Int) = mainToolbar.setTitle(titleRscId)
+    fun setToolbarTitle(titleRscId: Int) = mainToolbar?.setTitle(titleRscId)
 
     private fun toolbarSet(showMenuIcon: Boolean){
 
