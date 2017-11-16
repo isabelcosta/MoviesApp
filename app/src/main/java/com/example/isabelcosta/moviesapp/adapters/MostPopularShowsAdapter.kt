@@ -16,10 +16,11 @@ class MostPopularShowsAdapter(
         private val showsList: List<MostPopularShowsListItemResponseData>
 ) : RecyclerView.Adapter<MostPopularShowsAdapter.MostPopularShowsViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MostPopularShowsViewHolder {
-        val v = LayoutInflater.from(context).inflate(R.layout.item_most_popular_shows, parent, false)
-        return MostPopularShowsViewHolder(v)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MostPopularShowsViewHolder =
+            MostPopularShowsViewHolder(
+                    LayoutInflater.from(context)
+                            .inflate(R.layout.item_most_popular_shows, parent, false)
+            )
 
     override fun onBindViewHolder(holder: MostPopularShowsViewHolder?, position: Int) {
         val item = showsList[position]

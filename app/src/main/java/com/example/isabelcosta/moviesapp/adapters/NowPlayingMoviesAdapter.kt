@@ -17,10 +17,11 @@ class NowPlayingMoviesAdapter(
         private val openDetailFunction: (movieDetailId: Int) -> Unit
 ) : RecyclerView.Adapter<NowPlayingMoviesAdapter.NowPlayingMovieViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NowPlayingMovieViewHolder {
-        val v = LayoutInflater.from(context).inflate(R.layout.item_now_playing_movies, parent, false)
-        return NowPlayingMovieViewHolder(v)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NowPlayingMovieViewHolder =
+            NowPlayingMovieViewHolder(
+                    LayoutInflater.from(context)
+                            .inflate(R.layout.item_now_playing_movies, parent, false)
+            )
 
     override fun onBindViewHolder(holder: NowPlayingMovieViewHolder?, position: Int) {
         val item = moviesList[position]
