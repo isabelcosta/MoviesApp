@@ -21,6 +21,9 @@ class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback
     private lateinit var movieDetail: MovieDetailResponseData
     private val presenter = MovieDetailPresenter(this)
 
+    override fun getLayoutResourceId(): Int = R.layout.fragment_movie_detail
+    override fun getTitleResourceId(): Int = R.string.screen_title_movie_detail
+
     companion object {
         fun newInstance(movieDetailId: Int ): MovieDetailFragment {
             val args = Bundle().apply {
@@ -39,12 +42,6 @@ class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback
         presenter.getMovieDetail(movieDetailId)
     }
 
-    override fun getLayoutResourceId(): Int {
-        return R.layout.fragment_movie_detail
-    }
-
-    override fun getTitleResourceId(): Int {
-        return R.string.screen_title_movie_detail
     }
 
     override fun onShowMovieDetail(movieDetail: MovieDetailResponseData) {

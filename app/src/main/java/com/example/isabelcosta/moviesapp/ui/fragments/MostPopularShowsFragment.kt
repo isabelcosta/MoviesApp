@@ -16,18 +16,13 @@ class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShows
     private var presenter: MostPopularShowsPresenter = MostPopularShowsPresenter(this)
     private lateinit var showsResponseData: MostPopularShowsListResponseData
 
+    override fun getLayoutResourceId(): Int = R.layout.fragment_most_popular_shows
+    override fun getTitleResourceId(): Int = R.string.screen_title_popular_tv_shows
+
     companion object {
         fun newInstance(): MostPopularShowsFragment {
             return MostPopularShowsFragment()
         }
-    }
-
-    override fun getLayoutResourceId(): Int {
-        return R.layout.fragment_most_popular_shows
-    }
-
-    override fun getTitleResourceId(): Int {
-        return R.string.screen_title_popular_tv_shows
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
