@@ -6,6 +6,7 @@ import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.ui.fragments.BaseFragment
 import com.example.isabelcosta.moviesapp.ui.fragments.MostPopularShowsFragment
 import com.example.isabelcosta.moviesapp.ui.fragments.NowPlayingMoviesFragment
+import com.example.isabelcosta.moviesapp.ui.fragments.SearchMoviesFragment
 import com.example.isabelcosta.moviesapp.utils.addFragmentToActivity
 import com.example.isabelcosta.moviesapp.utils.replaceActivityFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,7 +17,7 @@ class MainActivity : BaseActivity() {
     private val fragmentsMenuMap: HashMap<Int, BaseFragment<MainActivity>> = hashMapOf(
             R.id.menuNowPlayingMovies to NowPlayingMoviesFragment.newInstance(),
             R.id.menuPopularTvShows to MostPopularShowsFragment.newInstance(),
-            R.id.menuSearchMovies to NowPlayingMoviesFragment.newInstance()
+            R.id.menuSearchMovies to SearchMoviesFragment.newInstance()
     )
 
     private val fragmentsMenuTitles: HashMap<Int, Int> = hashMapOf (

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="4">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/show_poster_content_description"
+            android:id="@+id/searchResultItemPosterImage"
+            app:srcCompat="@mipmap/placeholder"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:padding="@dimen/generic_14dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/NowPlayingMoviesItemTitle"
+            android:id="@+id/searchMovieItemTitle"
+            android:maxLines="@integer/item_movie_title_max_lines"
+            tools:text="Name of the Movie"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchMovieItemReleaseDate"
+            android:maxLines="@integer/item_search_movies_max_lines"
+            android:ellipsize="end"
+            tools:text="@string/test_movie_release_date"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="@integer/item_search_movies_max_lines"
+            android:id="@+id/searchMovieItemDescription"
+            android:ellipsize="end"
+            tools:text="@string/test_movie_description"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -9,15 +9,9 @@ class MovieDetailPresenter(private val uiCallback: IMovieDetailUiCallback) : IMo
 
     private val remoteDataSource = MoviesRemoteDataSource()
 
-    fun getMovieDetail(movieId: Int) {
-        remoteDataSource.getMovieDetail(this, movieId)
-    }
+    fun getMovieDetail(movieId: Int) = remoteDataSource.getMovieDetail(this, movieId)
 
-    override fun onSuccessGetMovieDetail(movieDetail: MovieDetailResponseData) {
-        uiCallback.onShowMovieDetail(movieDetail)
-    }
+    override fun onSuccessGetMovieDetail(movieDetail: MovieDetailResponseData) = uiCallback.onShowMovieDetail(movieDetail)
 
-    override fun onFailGetMovieDetail() {
-        uiCallback.onFetchFailMovieDetail()
-    }
+    override fun onFailGetMovieDetail() = uiCallback.onFetchFailMovieDetail()
 }

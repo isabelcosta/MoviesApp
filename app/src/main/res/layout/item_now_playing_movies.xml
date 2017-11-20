@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     style="@style/NowPlayingMoviesItemTitle"
                     android:id="@+id/nowPlayingMoviesItemTitle"
-                    tools:text="Blade Runner 2049" />
+                    tools:text="@string/test_movie_title" />
 
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                     android:id="@+id/nowPlayingMoviesItemDescription"
                     android:maxLines="@integer/item_now_playing_movies_max_lines"
                     android:ellipsize="end"
-                    tools:text="A movie about things and stuff ... things and stuff .. things and stuff ..things and stuff ..." />
+                    tools:text="@string/test_movie_description" />
             </LinearLayout>
         </LinearLayout>
 
