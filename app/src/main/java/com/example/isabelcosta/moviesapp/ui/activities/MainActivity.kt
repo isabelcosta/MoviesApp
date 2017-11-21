@@ -20,7 +20,7 @@ class MainActivity : BaseActivity() {
             R.id.menuSearchMovies to SearchMoviesFragment.newInstance()
     )
 
-    private val fragmentsMenuTitles: HashMap<Int, Int> = hashMapOf (
+    private val fragmentsMenuTitles: HashMap<Int, Int> = hashMapOf(
             R.id.menuNowPlayingMovies to R.string.screen_title_now_playing_movies,
             R.id.menuPopularTvShows to R.string.screen_title_popular_tv_shows,
             R.id.menuSearchMovies to R.string.screen_title_search_movies
@@ -63,22 +63,16 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    private fun populateToolbar() {
-        mainToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp)
-        mainToolbar.setNavigationOnClickListener { mainActivityDrawerLayout.openDrawer(Gravity.START) }
-    }
+    private fun populateToolbar() = toolbarSet(true)
 
     fun setToolbarTitle(titleRscId: Int) = mainToolbar?.setTitle(titleRscId)
 
-    private fun toolbarSet(showMenuIcon: Boolean){
-
-        if (showMenuIcon) {
-            mainToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp)
-            mainToolbar.setNavigationOnClickListener { mainActivityDrawerLayout.openDrawer(Gravity.START) }
-        } else {
-            mainToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
-            mainToolbar.setNavigationOnClickListener { onBackPressed() }
-        }
+    private fun toolbarSet(showMenuIcon: Boolean) = if (showMenuIcon) {
+        mainToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp)
+        mainToolbar.setNavigationOnClickListener { mainActivityDrawerLayout.openDrawer(Gravity.START) }
+    } else {
+        mainToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
+        mainToolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
     fun replaceFragment(fragment: BaseFragment<MainActivity>) = replaceActivityFragment(fragmentManager, R.id.mainFrameLayout, fragment)

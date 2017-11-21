@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/generic_14dp"
         android:id="@+id/searchButton"
+        style="@style/ClickableButtonStyle"
         app:srcCompat="@drawable/ic_search_black_24dp"/>
 
     <android.support.design.widget.TextInputEditText
@@ -28,5 +29,6 @@
         android:layout_alignParentEnd="true"
         android:visibility="invisible"
         tools:visibility="visible"
+        style="@style/ClickableButtonStyle"
         app:srcCompat="@drawable/ic_close_black_24dp"/>
 </RelativeLayout>

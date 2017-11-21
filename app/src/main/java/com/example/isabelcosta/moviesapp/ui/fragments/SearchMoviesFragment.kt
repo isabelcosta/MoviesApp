@@ -38,9 +38,7 @@ class SearchMoviesFragment : BaseFragment<MainActivity>(), ISearchMoviesUiCallba
         super.onActivityCreated(savedInstanceState)
 
         searchButton.setOnClickListener {
-
             val text = searchInputEditText.text.toString()
-
             if (text.isNotEmpty()) {
                 // Fetch movies search results list
                 presenter.searchMovies(searchInputEditText.text.toString())
