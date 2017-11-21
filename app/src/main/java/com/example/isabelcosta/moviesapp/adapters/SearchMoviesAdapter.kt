@@ -26,8 +26,11 @@ class SearchMoviesAdapter(
         val item = moviesList[position]
         val itemView = holder?.itemView ?: return
 
-        setImageUsingPicasso(context, item.posterPath, itemView.searchResultItemPosterImage)
+        item.posterPath?.let {
+            setImageUsingPicasso(context, item.posterPath, itemView.searchResultItemPosterImage)
+        }
         itemView.searchMovieItemTitle.text = item.title
+        itemView.searchMovieItemReleaseDate.text = item.releaseDate
         itemView.searchMovieItemDescription.text = item.overview
         itemView.setOnClickListener { openDetailFunction(item.movieId) }
     }

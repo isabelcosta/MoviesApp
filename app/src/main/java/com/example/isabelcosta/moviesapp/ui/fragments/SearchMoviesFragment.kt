@@ -5,12 +5,15 @@ import android.support.v7.widget.LinearLayoutManager
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.adapters.SearchMoviesAdapter
 import com.example.isabelcosta.moviesapp.data.models.MovieSearchResultsListResponseData
+import com.example.isabelcosta.moviesapp.extensions.afterTextChanged
+import com.example.isabelcosta.moviesapp.extensions.hidePartially
+import com.example.isabelcosta.moviesapp.extensions.show
 import com.example.isabelcosta.moviesapp.presenters.SearchMoviesPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.ISearchMoviesUiCallback
 import com.example.isabelcosta.moviesapp.utils.LinearListSpacesItemDecoration
-import kotlinx.android.synthetic.main.fragment_search_movies.*
 import kotlinx.android.synthetic.main.fragment_search_movies.view.*
+import kotlinx.android.synthetic.main.section_search.*
 
 class SearchMoviesFragment : BaseFragment<MainActivity>(), ISearchMoviesUiCallback {
 
@@ -34,9 +37,26 @@ class SearchMoviesFragment : BaseFragment<MainActivity>(), ISearchMoviesUiCallba
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        searchMoviesSearchView.setOnSearchClickListener {
-            // Fetch movies search results list
-            presenter.searchMovies(searchMoviesSearchView.query.toString())
+        searchButton.setOnClickListener {
+
+            val text = searchInputEditText.text.toString()
+
+            if (text.isNotEmpty()) {
+                // Fetch movies search results list
+                presenter.searchMovies(searchInputEditText.text.toString())
+            }
+        }
+
+        searchInputEditText.afterTextChanged {
+            if (it.isEmpty()) {
+                clearSearchButton.hidePartially()
+            } else {
+                clearSearchButton.show()
+            }
+        }
+
+        clearSearchButton.setOnClickListener {
+            searchInputEditText.text.clear()
         }
     }
 

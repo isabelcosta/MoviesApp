@@ -25,20 +25,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/NowPlayingMoviesItemTitle"
                 android:id="@+id/movieDetailTitleTextView"
-                tools:text="Serendipity"/>
+                android:layout_marginTop="@dimen/generic_14dp"
+                android:layout_marginBottom="@dimen/generic_14dp"
+                tools:text="@string/test_movie_title"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/movieDetailRatingTextView"
-                tools:text="7.5"/>
+                tools:text="@string/test_movie_classification"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/movieDetailDescriptionTextView"
-                tools:text="Serendipity is a movie about something"/>
+                tools:text="@string/test_movie_description"/>
 
         </LinearLayout>
 

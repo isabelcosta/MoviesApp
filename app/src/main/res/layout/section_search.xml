@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/generic_14dp"
+        android:id="@+id/searchButton"
+        app:srcCompat="@drawable/ic_search_black_24dp"/>
+
+    <android.support.design.widget.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchInputEditText"
+        android:maxLines="@integer/search_text_max_lines"
+        android:layout_toStartOf="@id/clearSearchButton"
+        android:layout_toEndOf="@+id/searchButton"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/generic_14dp"
+        android:id="@+id/clearSearchButton"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        app:srcCompat="@drawable/ic_close_black_24dp"/>
+</RelativeLayout>
