@@ -13,13 +13,12 @@ import kotlinx.android.synthetic.main.fragment_now_playing_movies.view.*
 
 class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMoviesUiCallback {
 
-    private var presenter: NowPlayingMoviesPresenter = NowPlayingMoviesPresenter(this)
     private lateinit var moviesResponseData: NowPlayingListResponseData
+    private var presenter = NowPlayingMoviesPresenter(this)
     private val openDetail: (Int) -> Unit =
-            {
-                movieDetailId ->
-                    screen.navigateToFragmentToolbarSet(false)
-                    screen.replaceFragment(MovieDetailFragment.newInstance(movieDetailId))
+            { movieDetailId ->
+                screen.navigateToFragmentToolbarSet(false)
+                screen.replaceFragment(MovieDetailFragment.newInstance(movieDetailId))
             }
 
     override fun getLayoutResourceId(): Int = R.layout.fragment_now_playing_movies

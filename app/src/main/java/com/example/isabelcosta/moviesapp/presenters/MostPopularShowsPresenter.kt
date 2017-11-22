@@ -10,15 +10,9 @@ class MostPopularShowsPresenter(private val uiCallback: IMostPopularShowsUiCallb
 
     private val remoteDataSource = TvRemoteDataSource()
 
-    fun getMostPopularShows() {
-        remoteDataSource.getMostPopularShows(this)
-    }
+    fun getMostPopularShows() = remoteDataSource.getMostPopularShows(this)
 
-    override fun onSuccessGetMostPopularShows(tvShows: MostPopularShowsListResponseData) {
-        uiCallback.onShowMostPopularShows(tvShows)
-    }
+    override fun onSuccessGetMostPopularShows(tvShows: MostPopularShowsListResponseData) = uiCallback.onShowMostPopularShows(tvShows)
 
-    override fun onFailGetMostPopularShows() {
-        uiCallback.onFetchFailMostPopularShows()
-    }
+    override fun onFailGetMostPopularShows() = uiCallback.onFetchFailMostPopularShows()
 }

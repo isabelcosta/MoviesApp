@@ -13,8 +13,8 @@ import kotlinx.android.synthetic.main.fragment_most_popular_shows.view.*
 
 class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShowsUiCallback {
 
-    private var presenter: MostPopularShowsPresenter = MostPopularShowsPresenter(this)
     private lateinit var showsResponseData: MostPopularShowsListResponseData
+    private var presenter = MostPopularShowsPresenter(this)
 
     override fun getLayoutResourceId(): Int = R.layout.fragment_most_popular_shows
     override fun getTitleResourceId(): Int = R.string.screen_title_popular_tv_shows

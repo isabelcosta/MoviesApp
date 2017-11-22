@@ -36,20 +36,20 @@ data class MovieDetailResponseData(
 
 data class SpokenLanguageResponseData(
         @SerializedName("iso_639_1") val languageCode: String, //en
-        val name: String //English
+		@SerializedName("name") val name: String //English
 )
 
 data class GenreResponseData(
-        val id: Int, //18
-        val name: String //Drama
+        @SerializedName("id") val id: Int, //18
+        @SerializedName("name") val name: String //Drama
 )
 
 data class ProductionCompanyResponseData(
-		val name: String, //New Line Cinema
-		val id: Int //12
+		@SerializedName("name") val name: String, //New Line Cinema
+		@SerializedName("id") val id: Int //12
 )
 
 data class ProductionCountryResponseData(
         @SerializedName("iso_639_1") val countryCode: String, //US
-		val name: String //United States of America
+		@SerializedName("name") val name: String //United States of America
 )
