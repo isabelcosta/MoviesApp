@@ -3,14 +3,14 @@ package com.example.isabelcosta.moviesapp.data.source.remote
 import com.example.isabelcosta.moviesapp.data.models.MostPopularShowsListResponseData
 import com.example.isabelcosta.moviesapp.data.remote.RemoteDataSource
 import com.example.isabelcosta.moviesapp.data.source.ITvDataSource
-import com.example.isabelcosta.moviesapp.data.source.remote.service.TvAPIService
+import com.example.isabelcosta.moviesapp.data.source.remote.service.TvApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class TvRemoteDataSource : RemoteDataSource(), ITvDataSource {
 
-    private val service: TvAPIService = retrofit.create(TvAPIService::class.java)
+    private val service: TvApiService = retrofit.create(TvApiService::class.java)
 
     override fun getMostPopularShows(presenter: ITvDataSource.GetMostPopularShows) {
 

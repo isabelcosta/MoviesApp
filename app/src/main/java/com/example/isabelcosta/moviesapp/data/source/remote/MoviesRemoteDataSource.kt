@@ -3,14 +3,14 @@ package com.example.isabelcosta.moviesapp.data.remote
 import com.example.isabelcosta.moviesapp.data.models.MovieDetailResponseData
 import com.example.isabelcosta.moviesapp.data.models.NowPlayingListResponseData
 import com.example.isabelcosta.moviesapp.data.source.IMoviesDataSource
-import com.example.isabelcosta.moviesapp.data.source.remote.service.MoviesAPIService
+import com.example.isabelcosta.moviesapp.data.source.remote.service.MoviesApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MoviesRemoteDataSource : RemoteDataSource(), IMoviesDataSource {
 
-    private val service: MoviesAPIService = retrofit.create(MoviesAPIService::class.java)
+    private val service: MoviesApiService = retrofit.create(MoviesApiService::class.java)
 
     override fun getNowPlayingMovies(presenter: IMoviesDataSource.GetNowPlayingMovies) {
 

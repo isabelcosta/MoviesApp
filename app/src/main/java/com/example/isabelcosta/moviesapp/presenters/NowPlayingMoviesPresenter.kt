@@ -10,15 +10,9 @@ class NowPlayingMoviesPresenter(private val uiCallback: INowPlayingMoviesUiCallb
 
     private val remoteDataSource = MoviesRemoteDataSource()
 
-    fun getNowPlayingMovies() {
-        remoteDataSource.getNowPlayingMovies(this)
-    }
+    fun getNowPlayingMovies() = remoteDataSource.getNowPlayingMovies(this)
 
-    override fun onSuccessGetNowPlayingMovies(movies: NowPlayingListResponseData) {
-        uiCallback.onShowMovies(movies)
-    }
+    override fun onSuccessGetNowPlayingMovies(movies: NowPlayingListResponseData) = uiCallback.onShowMovies(movies)
 
-    override fun onFailGetNowPlayingMovies() {
-        uiCallback.onFetchFailMovies()
-    }
+    override fun onFailGetNowPlayingMovies() = uiCallback.onFetchFailMovies()
 }

@@ -28,7 +28,7 @@
             android:padding="@dimen/generic_10dp"
             android:id="@+id/mostPopularShowsItemRating"
             style="@style/MostPopularShowsItemText"
-            tools:text="7.5" />
+            tools:text="@string/test_movie_classification" />
 
     </android.support.v7.widget.CardView>
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/mostPopularShowsItemTitle"
             style="@style/MostPopularShowsItemText"
-            tools:text="Thor Ragnarok" />
+            tools:text="@string/test_movie_title" />
 
     </RelativeLayout>
 

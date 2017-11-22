@@ -42,7 +42,8 @@ dependencies {
     // Retrofit & OkHttp
     compile "com.squareup.retrofit2:retrofit:$retrofit2LatestVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofit2LatestVersion"
-    compile 'com.squareup.okhttp:okhttp:2.7.2'
+    //compile 'com.squareup.okhttp:okhttp:2.7.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
 
     // Picasso
     compile 'com.squareup.picasso:picasso:2.5.2'
