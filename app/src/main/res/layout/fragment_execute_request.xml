@@ -9,6 +9,7 @@
 
     <include
         android:id="@+id/loadingContainerView"
+        android:visibility="gone"
         layout="@layout/section_loading_view"/>
 
 </RelativeLayout>

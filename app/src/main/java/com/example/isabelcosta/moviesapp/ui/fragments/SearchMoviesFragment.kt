@@ -15,7 +15,7 @@ import com.example.isabelcosta.moviesapp.utils.LinearListSpacesItemDecoration
 import kotlinx.android.synthetic.main.fragment_search_movies.view.*
 import kotlinx.android.synthetic.main.section_search.*
 
-class SearchMoviesFragment : BaseFragment<MainActivity>(), ISearchMoviesUiCallback {
+class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMoviesUiCallback {
 
     private var presenter = SearchMoviesPresenter(this)
     private lateinit var moviesResultResponseData: MovieSearchResultsListResponseData

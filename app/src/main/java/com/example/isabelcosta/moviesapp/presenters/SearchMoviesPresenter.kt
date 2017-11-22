@@ -10,10 +10,18 @@ class SearchMoviesPresenter(private val uiCallback: ISearchMoviesUiCallback)
 
     private val remoteDataSource = SearchRemoteDataSource()
 
-    fun searchMovies(searchText: String) = remoteDataSource.getMoviesSearchResults(this, searchText)
+    fun searchMovies(searchText: String) {
+        uiCallback.showLoader()
+        remoteDataSource.getMoviesSearchResults(this, searchText)
+    }
 
-    override fun onSuccessGetMoviesSearchResults(movieListResults: MovieSearchResultsListResponseData) =
+    override fun onSuccessGetMoviesSearchResults(movieListResults: MovieSearchResultsListResponseData) {
+        uiCallback.hideLoader()
         uiCallback.onShowMoviesSearchResults(movieListResults)
+    }
 
-    override fun onFailGetMoviesSearchResults() = uiCallback.onFetchFailMoviesSearchResults()
+    override fun onFailGetMoviesSearchResults() {
+        uiCallback.hideLoader()
+        uiCallback.onFetchFailMoviesSearchResults()
+    }
 }

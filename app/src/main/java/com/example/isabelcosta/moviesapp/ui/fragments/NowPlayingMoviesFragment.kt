@@ -11,7 +11,7 @@ import com.example.isabelcosta.moviesapp.ui.callbacks.INowPlayingMoviesUiCallbac
 import com.example.isabelcosta.moviesapp.utils.LinearListSpacesItemDecoration
 import kotlinx.android.synthetic.main.fragment_now_playing_movies.view.*
 
-class NowPlayingMoviesFragment : BaseFragment<MainActivity>(), INowPlayingMoviesUiCallback {
+class NowPlayingMoviesFragment : ExecuteRequestFragment<MainActivity>(), INowPlayingMoviesUiCallback {
 
     private lateinit var moviesResponseData: NowPlayingListResponseData
     private var presenter = NowPlayingMoviesPresenter(this)

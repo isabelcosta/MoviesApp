@@ -11,7 +11,7 @@ import com.example.isabelcosta.moviesapp.ui.callbacks.IMostPopularShowsUiCallbac
 import com.example.isabelcosta.moviesapp.utils.GridListSpacesItemDecoration
 import kotlinx.android.synthetic.main.fragment_most_popular_shows.view.*
 
-class MostPopularShowsFragment : BaseFragment<MainActivity>(), IMostPopularShowsUiCallback {
+class MostPopularShowsFragment : ExecuteRequestFragment<MainActivity>(), IMostPopularShowsUiCallback {
 
     private lateinit var showsResponseData: MostPopularShowsListResponseData
     private var presenter = MostPopularShowsPresenter(this)
