@@ -7,19 +7,6 @@ import retrofit2.http.Query
 
 interface TvApiService {
 
-    companion object {
-
-        // Endpoint parts
-        const val TV = "tv"
-        const val POPULAR = "popular"
-
-        // Path parameters
-        const val TV_ID = "tv_id"
-
-        // Query string
-        const val API_KEY = "api_key"
-    }
-
     @GET("$TV/$POPULAR")
     fun getPopularTvShows(@Query(API_KEY) apiKey: String): Call<MostPopularShowsListResponseData>
 
