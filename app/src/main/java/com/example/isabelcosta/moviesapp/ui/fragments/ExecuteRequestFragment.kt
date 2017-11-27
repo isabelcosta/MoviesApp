@@ -9,6 +9,7 @@ import com.example.isabelcosta.moviesapp.extensions.hideFully
 import com.example.isabelcosta.moviesapp.extensions.show
 import com.example.isabelcosta.moviesapp.ui.activities.BaseActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.ILoadingUiCallback
+import com.example.isabelcosta.moviesapp.utils.addViewToFirstIndex
 import kotlinx.android.synthetic.main.fragment_execute_request.*
 
 abstract class ExecuteRequestFragment<S : BaseActivity>: BaseFragment<S>(), ILoadingUiCallback {
@@ -18,7 +19,7 @@ abstract class ExecuteRequestFragment<S : BaseActivity>: BaseFragment<S>(), ILoa
 
         val containedFragment = inflater?.inflate(getLayoutResourceId(), rootView, false)
 
-        rootView.addView(containedFragment, 0)
+        rootView.addViewToFirstIndex(containedFragment)
 
         return rootView
     }
