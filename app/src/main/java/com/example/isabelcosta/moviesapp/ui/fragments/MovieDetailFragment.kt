@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_movie_detail.*
 /**
  * Created by IsabelCosta on 14-11-2017.
  */
-class MovieDetailFragment : BaseFragment<MainActivity>(), IMovieDetailUiCallback {
+class MovieDetailFragment : ExecuteRequestFragment<MainActivity>(), IMovieDetailUiCallback {
 
     private lateinit var movieDetail: MovieDetailResponseData
     private val presenter = MovieDetailPresenter(this)

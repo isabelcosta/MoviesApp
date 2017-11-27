@@ -8,6 +8,10 @@
     <string name="screen_title_search_movies">Search Movies</string>
     <string name="screen_title_movie_detail">Movie Detail</string>
 
+    <!-- Loader text -->
+    <string name="loading_message">Loading …</string>
+    <string name="loading_sub_message">Loading movies results …</string>
+
     <!-- Movie detail strings -->
 
     <string name="rating_value">Rating: %s</string>
