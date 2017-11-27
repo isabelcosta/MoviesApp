@@ -8,10 +8,10 @@ import retrofit2.http.Query
 interface SearchApiService {
 
     @GET("$SEARCH/$MOVIE")
-    fun getMoviesSearchResults(@Query(API_KEY) apiKey: String, @Query(QUERY) query: String): Call<MovieSearchResultsListResponseData>
+    fun getMoviesSearchResults(@Query(API_KEY) apiKey: String, @Query(QUERY) query: String, @Query(PAGE) pageNumber: Int): Call<MovieSearchResultsListResponseData>
 
     @GET("$SEARCH/$TV")
-    fun getTvSearchResults(@Query(API_KEY) apiKey: String, @Query(QUERY) query: String): Call<MovieSearchResultsListResponseData>
+    fun getTvSearchResults(@Query(API_KEY) apiKey: String, @Query(QUERY) query: String, @Query(PAGE) pageNumber: Int): Call<MovieSearchResultsListResponseData>
 
 //    @GET("$SEARCH/$MULTI")
 //    fun getMultiSearchResults(@Query(API_KEY) apiKey: String, @Query(QUERY) query: String): Call<MovieSearchResultsListResponseData>

@@ -14,6 +14,6 @@ interface ISearchDataSource {
         fun onFailGetTvShowsSearchResults()
     }
 
-    fun getMoviesSearchResults(presenter: ISearchDataSource.GetMoviesSearchResults, searchText: String)
-    fun getTvShowsSearchResults(presenter: ISearchDataSource.GetTvShowsSearchResults, searchText: String)
+    fun getMoviesSearchResults(presenter: ISearchDataSource.GetMoviesSearchResults, searchText: String, pageNumber: Int = 1)
+    fun getTvShowsSearchResults(presenter: ISearchDataSource.GetTvShowsSearchResults, searchText: String, pageNumber: Int = 1)
 }

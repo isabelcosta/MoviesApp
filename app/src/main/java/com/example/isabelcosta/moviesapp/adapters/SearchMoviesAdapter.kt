@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.item_movie_search_result.view.*
 
 class SearchMoviesAdapter(
         private val context: BaseActivity,
-        private val moviesList: List<MovieSearchResultsItemResponseData>,
-        private val openDetailFunction: (movieDetailId: Int) -> Unit
+        private var moviesList: List<MovieSearchResultsItemResponseData>,
+        private val openDetailFunction: (movieId: Int) -> Unit
 ) : RecyclerView.Adapter<SearchMoviesAdapter.MovieSearchResultViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MovieSearchResultViewHolder =
@@ -40,4 +40,13 @@ class SearchMoviesAdapter(
     }
 
     class MovieSearchResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    fun addElements(moreMovies: List<MovieSearchResultsItemResponseData>) {
+        moviesList.plus(moreMovies)
+        notifyDataSetChanged()
+    }
+
+    fun clearElements() {
+//        moviesList.removeAll()
+    }
 }

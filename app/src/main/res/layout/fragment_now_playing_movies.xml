@@ -11,4 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <include layout="@layout/partial_fetch_more"
+        android:layout_alignBottom="@+id/nowPlayingMoviesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>

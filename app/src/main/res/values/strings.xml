@@ -13,25 +13,29 @@
     <string name="loading_sub_message">Loading movies results …</string>
 
     <!-- Movie detail strings -->
-
     <string name="rating_value">Rating: %s</string>
     <string name="movie_detail">Detail</string>
     <string name="movie_detail_fetch_fail">Failed to fetch movie detail…</string>
 
     <!-- Content Description -->
-
     <string name="movie_poster_content_description">Movie\'s poster</string>
     <string name="show_poster_content_description">Show\'s poster</string>
 
 
-    <string name="load_more_items">Load more</string>
+    <!-- Search -->
+    <string name="empty_results">Can\'t find any %1$s with query \"%2$s\"</string>
 
+    <string name="load_more_items">Load more</string>
 
     <!-- Helpful texts to test layouts -->
     <string name="test_movie_title">Name of the Movie</string>
     <string name="test_movie_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="test_movie_classification">7.5</string>
     <string name="test_movie_release_date">10–11–2017</string>
+
+    <!-- General -->
+    <string name="movie">movie</string>
+    <string name="tv_show">TV show</string>
 
 
 </resources>

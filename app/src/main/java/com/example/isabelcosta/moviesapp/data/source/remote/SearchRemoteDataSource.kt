@@ -12,8 +12,8 @@ class SearchRemoteDataSource : RemoteDataSource(), ISearchDataSource {
 
     private val service: SearchApiService = retrofit.create(SearchApiService::class.java)
 
-    override fun getMoviesSearchResults(presenter: ISearchDataSource.GetMoviesSearchResults, searchText: String) {
-        val call = service.getMoviesSearchResults(apiKey, searchText)
+    override fun getMoviesSearchResults(presenter: ISearchDataSource.GetMoviesSearchResults, searchText: String, pageNumber: Int) {
+        val call = service.getMoviesSearchResults(apiKey, searchText, pageNumber)
 
         call.enqueue(object : Callback<MovieSearchResultsListResponseData> {
             override fun onResponse(call: Call<MovieSearchResultsListResponseData>?, response: Response<MovieSearchResultsListResponseData>?) {
@@ -32,8 +32,8 @@ class SearchRemoteDataSource : RemoteDataSource(), ISearchDataSource {
         })
     }
 
-    override fun getTvShowsSearchResults(presenter: ISearchDataSource.GetTvShowsSearchResults, searchText: String) {
-        val call = service.getTvSearchResults(apiKey, searchText)
+    override fun getTvShowsSearchResults(presenter: ISearchDataSource.GetTvShowsSearchResults, searchText: String, pageNumber: Int) {
+        val call = service.getTvSearchResults(apiKey, searchText, pageNumber)
 
     }
 }

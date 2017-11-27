@@ -4,25 +4,29 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.adapters.SearchMoviesAdapter
-import com.example.isabelcosta.moviesapp.data.models.MovieSearchResultsListResponseData
+import com.example.isabelcosta.moviesapp.data.models.MovieSearchResultsItemResponseData
 import com.example.isabelcosta.moviesapp.extensions.afterTextChanged
+import com.example.isabelcosta.moviesapp.extensions.hideFully
 import com.example.isabelcosta.moviesapp.extensions.hidePartially
 import com.example.isabelcosta.moviesapp.extensions.show
 import com.example.isabelcosta.moviesapp.presenters.SearchMoviesPresenter
 import com.example.isabelcosta.moviesapp.ui.activities.MainActivity
 import com.example.isabelcosta.moviesapp.ui.callbacks.ISearchMoviesUiCallback
 import com.example.isabelcosta.moviesapp.utils.LinearListSpacesItemDecoration
-import kotlinx.android.synthetic.main.fragment_search_movies.view.*
+import kotlinx.android.synthetic.main.fragment_search_movies.*
+import kotlinx.android.synthetic.main.partial_empty_results.*
+import kotlinx.android.synthetic.main.partial_fetch_more.*
 import kotlinx.android.synthetic.main.section_search.*
 
 class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMoviesUiCallback {
 
     private var presenter = SearchMoviesPresenter(this)
-    private lateinit var moviesResultResponseData: MovieSearchResultsListResponseData
-    private val openDetail: (Int) -> Unit =
-            { movieDetailId ->
+    private lateinit var moviesResultsAdapter: SearchMoviesAdapter
+    private lateinit var moviesResultResponseDataList: List<MovieSearchResultsItemResponseData>
+    private val openMovieDetail: (Int) -> Unit =
+            { movieId ->
                 screen.navigateToFragmentToolbarSet(false)
-                screen.replaceFragment(MovieDetailFragment.newInstance(movieDetailId))
+                screen.replaceFragment(MovieDetailFragment.newInstance(movieId))
             }
 
     override fun getLayoutResourceId(): Int = R.layout.fragment_search_movies
@@ -41,7 +45,7 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
             val text = searchInputEditText.text.toString()
             if (text.isNotEmpty()) {
                 // Fetch movies search results list
-                presenter.searchMovies(searchInputEditText.text.toString())
+                //presenter.searchMovies(searchInputEditText.text.toString())
             }
         }
 
@@ -56,27 +60,79 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
         clearSearchButton.setOnClickListener {
             searchInputEditText.text.clear()
         }
+
+        setSearchAdapter()
+
+        fetchMoreButton.setOnClickListener {
+            presenter.searchMovies(searchInputEditText.text.toString())
+        }
     }
 
     /*
         Callback Methods
      */
-    override fun onShowMoviesSearchResults(moviesResults: MovieSearchResultsListResponseData) {
-        moviesResultResponseData = moviesResults
-        val moviesList = moviesResults.results
-        val moviesResultsAdapter = SearchMoviesAdapter(screen, moviesList, openDetail)
+
+    override fun onShowLastMoviesSearchResults(movieResults: List<MovieSearchResultsItemResponseData>, isFirstQueryResult: Boolean) {
+
+        fetchMoreButton.hideFully()
+        setupViewsOnResultCallback(true)
+        showMoviesSearchResults(movieResults, isFirstQueryResult)
+    }
+
+    override fun onShowMoviesSearchResultsWithMoreToCome(movieResults: List<MovieSearchResultsItemResponseData>, isFirstQueryResult: Boolean) {
+        fetchMoreButton.show()
+        setupViewsOnResultCallback(true)
+        showMoviesSearchResults(movieResults, isFirstQueryResult)
+    }
+
+    override fun onShowZeroResults(searchText: String) = setupViewsOnResultCallback(false, searchText)
+
+    override fun onFetchFailMoviesSearchResults() {
+        setupViewsOnResultCallback(false)
+        fetchMoreButton.hideFully()
+    }
+
+    /*
+        Private Methods
+    */
+
+    private fun showMoviesSearchResults(movieResults: List<MovieSearchResultsItemResponseData>, isFirstQueryResult: Boolean) {
+
+        if (isFirstQueryResult) {
+            moviesResultsAdapter.clearElements()
+            moviesResultResponseDataList = movieResults
+        } else {
+            moviesResultResponseDataList.plus(movieResults)
+        }
+        moviesResultsAdapter.addElements(movieResults)
+
+        emptyResultsView.hideFully()
+    }
+
+    private fun setSearchAdapter() {
+//        moviesResultsAdapter = SearchMoviesAdapter(screen, List<MovieSearchResultsItemResponseData>(0), openMovieDetail)
 
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.generic_14dp)
         val itemDecoration = LinearListSpacesItemDecoration(spacingInPixels)
 
-        rootView.searchMoviesRecyclerView.apply {
+        searchMoviesRecyclerView.apply {
             addItemDecoration(itemDecoration)
             layoutManager = LinearLayoutManager(screen)
             adapter = moviesResultsAdapter
         }
     }
 
-    override fun onFetchFailMoviesSearchResults() {
+    private fun setupViewsOnResultCallback(hasResults: Boolean, searchText: String = ""){
+        if (hasResults) {
+            searchMoviesRecyclerView.show()
+            emptyResultsView.hideFully()
+        } else {
+            fetchMoreButton.hideFully()
+            searchMoviesRecyclerView.hideFully()
 
+            val emptyResultsText = getString(R.string.empty_results, getString(R.string.movie), searchText)
+            emptySearchResultsTextView.text = emptyResultsText
+            emptyResultsView.show()
+        }
     }
 }
