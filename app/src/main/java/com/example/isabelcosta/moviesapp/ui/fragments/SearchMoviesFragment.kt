@@ -45,7 +45,7 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
             val text = searchInputEditText.text.toString()
             if (text.isNotEmpty()) {
                 // Fetch movies search results list
-                //presenter.searchMovies(searchInputEditText.text.toString())
+                presenter.searchMovies(searchInputEditText.text.toString())
             }
         }
 
@@ -85,7 +85,10 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
         showMoviesSearchResults(movieResults, isFirstQueryResult)
     }
 
-    override fun onShowZeroResults(searchText: String) = setupViewsOnResultCallback(false, searchText)
+    override fun onShowZeroResults(searchText: String) {
+        moviesResultsAdapter.clearElements()
+        setupViewsOnResultCallback(false, searchText)
+    }
 
     override fun onFetchFailMoviesSearchResults() {
         setupViewsOnResultCallback(false)
@@ -110,7 +113,7 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
     }
 
     private fun setSearchAdapter() {
-//        moviesResultsAdapter = SearchMoviesAdapter(screen, List<MovieSearchResultsItemResponseData>(0), openMovieDetail)
+        moviesResultsAdapter = SearchMoviesAdapter(screen, emptyList(), openMovieDetail)
 
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.generic_14dp)
         val itemDecoration = LinearListSpacesItemDecoration(spacingInPixels)

@@ -26,9 +26,7 @@ class SearchMoviesAdapter(
         val item = moviesList[position]
         val itemView = holder?.itemView ?: return
 
-        item.posterPath?.let {
-            setImageUsingPicasso(context, item.posterPath, itemView.searchResultItemPosterImage)
-        }
+        setImageUsingPicasso(context, item.posterPath, itemView.searchResultItemPosterImage)
         itemView.searchMovieItemTitle.text = item.title
         itemView.searchMovieItemReleaseDate.text = item.releaseDate
         itemView.searchMovieItemDescription.text = item.overview
@@ -42,11 +40,11 @@ class SearchMoviesAdapter(
     class MovieSearchResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     fun addElements(moreMovies: List<MovieSearchResultsItemResponseData>) {
-        moviesList.plus(moreMovies)
+        moviesList = moviesList.plus(moreMovies)
         notifyDataSetChanged()
     }
 
     fun clearElements() {
-//        moviesList.removeAll()
+        moviesList = emptyList()
     }
 }

@@ -19,7 +19,7 @@ class SearchMoviesPresenter(private val uiCallback: ISearchMoviesUiCallback)
     fun searchMovies(searchText: String) {
 
         if (this.searchText != searchText) {
-            resetPageNumber()
+            resetSearchAttributes()
             this.searchText = searchText
         }
 
@@ -42,6 +42,7 @@ class SearchMoviesPresenter(private val uiCallback: ISearchMoviesUiCallback)
             val isLastResult = totalPages == movieListResults.page
 
             if (isLastResult) {
+                resetPageNumber()
                 uiCallback.onShowLastMoviesSearchResults(movieListResults.results, isFirstResult)
             } else {
                 uiCallback.onShowMoviesSearchResultsWithMoreToCome(movieListResults.results, isFirstResult)
@@ -56,6 +57,11 @@ class SearchMoviesPresenter(private val uiCallback: ISearchMoviesUiCallback)
 
     private fun updatePageNumber() = lastPageRequested++
     private fun resetPageNumber() {
+        lastPageRequested = INITIAL_PAGE_NUMBER
+    }
+    private fun resetSearchAttributes() {
+        resetPageNumber()
+        totalPages = INVALID_INT
         lastPageRequested = INITIAL_PAGE_NUMBER
     }
 }
