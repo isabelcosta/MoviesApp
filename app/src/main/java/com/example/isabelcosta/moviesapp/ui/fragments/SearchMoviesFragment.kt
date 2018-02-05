@@ -72,11 +72,11 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
         super.onResume()
 
         // Try to show items after returning from detail fragment onBackPress
-        moviesResultsAdapter.apply {
-            clearElements()
-            addElements(moviesResultResponseDataList)
-            notifyDataSetChanged()
-        }
+//        moviesResultsAdapter.apply {
+//            clearElements()
+//            addElements(moviesResultResponseDataList)
+//            notifyDataSetChanged()
+//        }
     }
 
     /*
