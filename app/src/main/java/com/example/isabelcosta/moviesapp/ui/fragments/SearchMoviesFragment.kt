@@ -2,6 +2,7 @@ package com.example.isabelcosta.moviesapp.ui.fragments
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.KeyEvent
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.adapters.SearchMoviesAdapter
 import com.example.isabelcosta.moviesapp.data.models.MovieSearchResultsItemResponseData
@@ -17,6 +18,8 @@ import kotlinx.android.synthetic.main.fragment_search_movies.*
 import kotlinx.android.synthetic.main.partial_empty_results.*
 import kotlinx.android.synthetic.main.partial_fetch_more.*
 import kotlinx.android.synthetic.main.section_search.*
+
+
 
 class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMoviesUiCallback {
 
@@ -42,11 +45,7 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
         super.onActivityCreated(savedInstanceState)
 
         searchButton.setOnClickListener {
-            val text = searchInputEditText.text.toString()
-            if (text.isNotEmpty()) {
-                // Fetch movies search results list
-                presenter.searchMovies(searchInputEditText.text.toString())
-            }
+            performSearch()
         }
 
         searchInputEditText.afterTextChanged {
@@ -57,6 +56,18 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
             }
         }
 
+        searchInputEditText.setOnKeyListener { _, keyCode, event ->
+            if (KeyEvent.ACTION_DOWN == event.action) {
+                when (keyCode) {
+                    KeyEvent.KEYCODE_ENTER -> {
+                        screen.hideKeyboard()
+                        performSearch()
+                        true
+                    }
+                }
+            }
+            false
+        }
         clearSearchButton.setOnClickListener {
             searchInputEditText.text.clear()
         }
@@ -64,6 +75,14 @@ class SearchMoviesFragment : ExecuteRequestFragment<MainActivity>(), ISearchMovi
         setSearchAdapter()
 
         fetchMoreButton.setOnClickListener {
+            presenter.searchMovies(searchInputEditText.text.toString())
+        }
+    }
+
+    private fun performSearch() {
+        val text = searchInputEditText.text.toString()
+        if (text.isNotEmpty()) {
+            // Fetch movies search results list
             presenter.searchMovies(searchInputEditText.text.toString())
         }
     }

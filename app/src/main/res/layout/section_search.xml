@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/searchInputEditText"
         android:maxLines="@integer/search_text_max_lines"
+        android:imeOptions="actionSearch"
         android:layout_toStartOf="@id/clearSearchButton"
         android:layout_toEndOf="@+id/searchButton"/>
 

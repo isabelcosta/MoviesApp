@@ -1,7 +1,9 @@
 package com.example.isabelcosta.moviesapp.ui.activities
 
+import android.content.Context
 import android.os.Bundle
 import android.view.Gravity
+import android.view.inputmethod.InputMethodManager
 import com.example.isabelcosta.moviesapp.R
 import com.example.isabelcosta.moviesapp.ui.fragments.BaseFragment
 import com.example.isabelcosta.moviesapp.ui.fragments.MostPopularShowsFragment
@@ -95,4 +97,17 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    /*
+     * Keyboard
+     */
+
+    public fun hideKeyboard() {
+
+        // Check if no view has focus:
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
 }
