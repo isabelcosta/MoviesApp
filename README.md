@@ -23,15 +23,9 @@ TODO: missing some awesome pics
 ### Requirements
 
 To run the application you need a Movies DB API key.
-First you need to create a new file, which you can place at `\app\src\main\res\values\config.xml` with the following placeholder.
-Then, you need to replace `MOVIES_DB_API_KEY` for your API key.
+Find this file: `\app\src\main\res\values\config.xml` and replace `MOVIES_DB_API_KEY` with an appropriate API key.
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="movies_db_api_key">MOVIES_DB_API_KEY</string>
-
-</resources>
+<string name="movies_db_api_key">MOVIES_DB_API_KEY</string>
 ```
 
 ### Contributors
